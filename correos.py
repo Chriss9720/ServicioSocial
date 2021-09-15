@@ -103,7 +103,7 @@ Si aún surge alguna duda estaremos disponibles para asesorarte.
                         }
                     )
             self.__Datos__(ERRORESAUX)
-            print(f"En este intento {self.intento} se mandaron {vuelta} y hubo {len(Errores)} errores")
+            print(f"En este intento {self.intento} se mandaron {vuelta} y hubo {len(ERRORESAUX)} errores")
             self.intento += 1
             Errores = ERRORESAUX
         print("Se terminaron de mandar todos correos")
