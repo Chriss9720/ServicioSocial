@@ -1,4 +1,4 @@
-Librerias usadas
+#Librerias usadas
 pip install selenium
 pip install PyMails
 pip install smtplib
