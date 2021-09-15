@@ -11,7 +11,7 @@ class Main():
         self.clave = '12345678' ##Clave del SISETI
         self.__Pagina__() #Crea el archivo self.nombre con toda la informacion de la pagina
         #self.__Buscar__('21130211') #Recibe una matricula y dice si existe
-        #self.__Mandar__() #Carrera matricula correo instrumentos
+        self.__Mandar__() #Carrera matricula correo instrumentos
     def __Mandar__(self):
         data = Archivo().Datos(self.name)
         Mensaje(data, self.correo, self.psw)
