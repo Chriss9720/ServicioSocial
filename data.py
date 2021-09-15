@@ -7,9 +7,9 @@ class Data:
         browser = webdriver.Chrome()
         browser.get('https://app.itesca.edu.mx/')
         user = browser.find_element_by_id('id_username')
-        user.send_keys(18130159)
+        user.send_keys() #Usuario
         psw = browser.find_element_by_id('id_password')
-        psw.send_keys(12345678)
+        psw.send_keys() #Clave
         psw.submit()
         content = browser.find_element_by_xpath("/html/body").text.split("\n")
         bandera = False
