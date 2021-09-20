@@ -19,10 +19,11 @@ class Archivo:
                     'Faltantes' : faltantes
                 }
             )
-        Carreras(data)
+        carrera = Carreras().iniciarBusqueda(data)
         filtro = []
+        print(f"Se seleciono {carrera}")
         for x in data:
-            if x['Carrera'] in "ARQ":
+            if x['Carrera'] in carrera:
                 filtro.append(
                     {
                         'Carrera' : dato[0],
