@@ -5,12 +5,12 @@ from email.mime.multipart import MIMEMultipart
 import smtplib
 import time
 class Mensaje:
-    def __init__(self, lista, correo, psw):
+    def __init__(self, lista, correo, psw, intervalo):
         self.lista = lista
         self.intento = 0
         self.Correo = correo
         self.Psw = psw
-        self.time = 180
+        self.time = intervalo
         self.mandar()
     def mandar(self):
         Errores = []
