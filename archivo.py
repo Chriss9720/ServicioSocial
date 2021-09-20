@@ -19,7 +19,7 @@ class Archivo:
                     'Faltantes' : faltantes
                 }
             )
-        Carreras()
+        Carreras(data)
         filtro = []
         for x in data:
             if x['Carrera'] in "ARQ":
