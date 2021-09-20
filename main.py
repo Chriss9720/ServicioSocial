@@ -1,6 +1,7 @@
 from correos import Mensaje
 from data import Data
 from archivo import Archivo
+from datetime import datetime
 class Main():
     #Leer desde un archivo debe de ser Carrera Matricula Correo Instrumentacion faltante
     def __init__(self):
@@ -9,12 +10,16 @@ class Main():
         self.psw = 'cuuviellugjnnmhn' ##Clave del correo
         self.Usuario = '18130159' ##Usuario del SISETI
         self.clave = '12345678' ##Clave del SISETI
+        self.time = 300 #Intervalo en segundos (5 min de preferencia)
         self.__Pagina__() #Crea el archivo self.nombre con toda la informacion de la pagina
         #self.__Buscar__('21130211') #Recibe una matricula y dice si existe
         self.__Mandar__() #Carrera matricula correo instrumentos
     def __Mandar__(self):
         data = Archivo().Datos(self.name)
-        Mensaje(data, self.correo, self.psw, 300)
+        now = datetime.now()
+        time = now.strftime("%H:%M:%S")
+        print(f"Se tardara: {((len(data) * self.time) / 60)} minutos. Se empezo a la hora: {time}")
+        Mensaje(data, self.correo, self.psw, self.time)
     def __Pagina__(self):
         Data(self.name, self.Usuario, self.clave)
     def __Buscar__(self, mat):

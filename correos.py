@@ -56,9 +56,11 @@ Si aún surge alguna duda estaremos disponibles para asesorarte.
                     }
                 )
             time.sleep(self.time)
+            print(f"Han pasado: {(((i+1) * self.time) / 60)} minutos. {(vuelta)} correos. Se mando a {self.lista[i]['Matricula']}")
         self.__Datos__(Errores)
         print(f"En este intento {self.intento} se mandaron {vuelta} y hubo {len(Errores)} errores")
         self.intento += 1
+        print(f"Extras: {(((len(Errores)) * self.time) / 60)} minutos")
         self.__Recuperacion__(Errores)
     def __Recuperacion__(self, Errores):
         while (len(Errores) > 0):
@@ -106,8 +108,10 @@ Si aún surge alguna duda estaremos disponibles para asesorarte.
                         }
                     )
                 time.sleep(self.time)
+                print(f"Han pasado: {(((i+1) * self.time) / 60)} minutos. {(vuelta)} correos. Se mando a {Errores[i]['Matricula']}")
             self.__Datos__(ERRORESAUX)
             print(f"En este intento {self.intento} se mandaron {vuelta} y hubo {len(ERRORESAUX)} errores")
+            print(f"Extras: {(((len(ERRORESAUX)) * self.time) / 60)} minutos")
             self.intento += 1
             Errores = ERRORESAUX
         print("Se terminaron de mandar todos correos")

@@ -26,10 +26,10 @@ class Archivo:
             if x['Carrera'] in carrera:
                 filtro.append(
                     {
-                        'Carrera' : dato[0],
-                        'Matricula' : f'{dato[1]}@e-itesca.edu.mx',
-                        'Correo': dato[2],
-                        'Faltantes' : faltantes
+                        'Carrera' : x['Carrera'],
+                        'Matricula' : x['Matricula'],
+                        'Correo': x['Correo'],
+                        'Faltantes' : x['Faltantes']
                     }
                 )
         print(f"Salieron {len(filtro)} objetos")
