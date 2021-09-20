@@ -1,3 +1,4 @@
+from carreras import Carreras
 class Archivo:
     def Datos(self, nombre):
         file = open(nombre, "r")
@@ -18,5 +19,17 @@ class Archivo:
                     'Faltantes' : faltantes
                 }
             )
-        print(f"Salieron {len(data)} objetos")
-        return data
+        Carreras()
+        filtro = []
+        for x in data:
+            if x['Carrera'] in "ARQ":
+                filtro.append(
+                    {
+                        'Carrera' : dato[0],
+                        'Matricula' : f'{dato[1]}@e-itesca.edu.mx',
+                        'Correo': dato[2],
+                        'Faltantes' : faltantes
+                    }
+                )
+        print(f"Salieron {len(filtro)} objetos")
+        return filtro

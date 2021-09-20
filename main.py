@@ -14,7 +14,7 @@ class Main():
         self.__Mandar__() #Carrera matricula correo instrumentos
     def __Mandar__(self):
         data = Archivo().Datos(self.name)
-        Mensaje(data, self.correo, self.psw)
+        #Mensaje(data, self.correo, self.psw)
     def __Pagina__(self):
         Data(self.name, self.Usuario, self.clave)
     def __Buscar__(self, mat):

@@ -3,12 +3,14 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 #pip install smtplib
 import smtplib
+import time
 class Mensaje:
     def __init__(self, lista, correo, psw):
         self.lista = lista
         self.intento = 0
         self.Correo = correo
         self.Psw = psw
+        self.time = 180
         self.mandar()
     def mandar(self):
         Errores = []
@@ -53,6 +55,7 @@ Si aún surge alguna duda estaremos disponibles para asesorarte.
                         'Faltantes' : self.lista[i]['Faltantes']
                     }
                 )
+            time.sleep(self.time)
         self.__Datos__(Errores)
         print(f"En este intento {self.intento} se mandaron {vuelta} y hubo {len(Errores)} errores")
         self.intento += 1
@@ -102,6 +105,7 @@ Si aún surge alguna duda estaremos disponibles para asesorarte.
                             'Faltantes' : Errores[i]['Faltantes']
                         }
                     )
+                time.sleep(self.time)
             self.__Datos__(ERRORESAUX)
             print(f"En este intento {self.intento} se mandaron {vuelta} y hubo {len(ERRORESAUX)} errores")
             self.intento += 1

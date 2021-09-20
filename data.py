@@ -18,12 +18,11 @@ class Data:
         cont = 0
         for i in content:
             if (bandera and len(i) > 8):
-                if "ARQ" in i or "LA" in i:
-                    if cont == 0:
-                        f.write(i)
-                    else:
-                        f.write("\n" + i)
-                    cont += 1
+                if cont == 0:
+                    f.write(i)
+                else:
+                    f.write("\n" + i)
+                cont += 1
             if (i == 'Mayores de 18 años' and not bandera):
                 bandera = True
         f.close()
