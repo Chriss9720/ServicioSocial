@@ -1,8 +1,8 @@
 class Carreras:
     def iniciarBusqueda(self, datos):
-        self.__carreras__ = ["ARQ","IAE","IAG","IEM","IGEM","IGGM","IIGM","IIMC","IIMS","IISL","IM","IMA","ISCM","ISCW","LAMK","LANI","MPIA","MPID","MPIS"]
+        self.__carreras__ = ["ARQ", "IAE", "IAG", "IEM", "IGEM", "IGGM", "IIGM", "IIMC", "IIMS", "IISL", "IM", "IMA", "ISCM", "ISCW", "LAMK", "LANI", "MPIA", "MPID", "MPIS"]
         self.__CrearArchivoDeCarreras__(datos)
-        return self.__CarreraSeleccionada__(self.__Seleccionar__(self.__Ultima__()))
+        return self.__Faltan__(self.__carreras__[(self.__Seleccionar__(self.__Ultima__()))])
     ##Metodo para crear el archvio de carreras
     def __CrearArchivoDeCarreras__(self, datos):
         f = open("Carreras.txt", "w")
@@ -25,34 +25,36 @@ class Carreras:
         return True
     ##Metodo para sacar la ultima carrera a la que se envio el mensaje
     def __Ultima__(self):
-        f = open("Ultima.txt", "r")
-        ultimo = ""
-        for d in f:
-            ultimo = d
-        return ultimo
+        try:
+            ultimo = ""
+            f = open("Ultima.txt", "r")
+            for d in f:
+                ultimo = d
+            return ultimo
+        except:
+            return ""
+    ##Esta en la lista la que sigue
+    def __Faltan__(self, buscar):
+        f = open("Carreras.txt", "r")
+        for x in f:
+            if buscar in x:
+                return self.__NuevaUltima__(buscar)
+        return self.__NuevaUltima__(self.__carreras__[0])
     ##Metodo que regresa la posicion de la lista para mandar a esa carrera
     def __Seleccionar__(self, ultima):
         if len(ultima) == 0:
-            print("Caso 1")
             return 0
         else:
             for x in range(0, len(self.__carreras__)):
                 if (self.__carreras__[x] == ultima):
                     if ((x+1) < len(self.__carreras__)):
-                        print("Caso 2")
                         return (x+1)
                     else:
-                        print("Caso 3")
                         return 0
-        print("Caso 4")
         return 0
     ##Escribir la ultima carrera
     def __NuevaUltima__(self, dato):
         f = open("Ultima.txt", "w")
         f.write(dato)
         f.close()
-    ##Metodo que retorna la carrera a mandar el correo
-    def __CarreraSeleccionada__(self, pos):
-        selecionada = self.__carreras__[pos]
-        self.__NuevaUltima__(selecionada)
-        return selecionada
+        return dato
