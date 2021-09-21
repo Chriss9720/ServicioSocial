@@ -1,6 +1,6 @@
 from carreras import Carreras
 class Archivo:
-    def Datos(self, nombre):
+    def Datos(self, nombre, mov):
         file = open(nombre, "r")
         data =[]
         for x in file:
@@ -19,6 +19,7 @@ class Archivo:
                     'Faltantes' : faltantes
                 }
             )
+        if (mov != True): return data
         carrera = Carreras().iniciarBusqueda(data)
         filtro = []
         print(f"Se seleciono {carrera}")
