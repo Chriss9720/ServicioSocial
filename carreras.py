@@ -43,12 +43,12 @@ class Carreras:
             if (not encontrado and buscar in x):
                 encontrado = True
         if (encontrado):
-            return self.__NuevaUltima__(buscar)
+            return buscar
         else:
             if(pos < len(data)):
-                return self.__NuevaUltima__(data[pos])
+                return data[pos]
             else:
-                return self.__NuevaUltima__(data[0])
+                return data[0]
     ##Metodo que regresa la posicion de la lista para mandar a esa carrera
     def __Seleccionar__(self, ultima):
         if len(ultima) == 0:
@@ -61,9 +61,3 @@ class Carreras:
                     else:
                         return 0
         return 0
-    ##Escribir la ultima carrera
-    def __NuevaUltima__(self, dato):
-        f = open("Ultima.txt", "w")
-        f.write(dato)
-        f.close()
-        return dato

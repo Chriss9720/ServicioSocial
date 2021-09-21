@@ -2,9 +2,11 @@ from correos import Mensaje
 from data import Data
 from archivo import Archivo
 from datetime import datetime
+from informe import Informe
 class Main():
     #Leer desde un archivo debe de ser Carrera Matricula Correo Instrumentacion faltante
     def __init__(self):
+        self.enviados = 0
         self.name = "Datos.txt" ##Nombre del archivo
         self.correo = 'serviciosocialsiseti2021@gmail.com' ##Correo de donde se mandaran
         self.psw = 'cuuviellugjnnmhn' ##Clave del correo
@@ -15,11 +17,14 @@ class Main():
         #self.__Buscar__('21130211') #Recibe una matricula y dice si existe
         self.__Mandar__() #Carrera matricula correo instrumentos
     def __Mandar__(self):
-        data = Archivo().Datos(self.name)
-        now = datetime.now()
-        time = now.strftime("%H:%M:%S")
-        print(f"Se tardara: {(((len(data)-1) * self.time) / 60)} minutos. Se empezo a la hora: {time}")
-        #Mensaje(data, self.correo, self.psw, self.time)
+        while (self.enviados < 50):
+            data = Archivo().Datos(self.name)
+            self.enviados += len(data)
+            now = datetime.now()
+            time = now.strftime("%H:%M:%S")
+            print(f"Se tardara: {(((len(data)-1) * self.time) / 60)} minutos. Se empezo a la hora: {time}")
+            Mensaje(data, self.correo, self.psw, self.time)
+            Informe(data[0]['Carrera'], len(data))
     def __Pagina__(self):
         Data(self.name, self.Usuario, self.clave)
     def __Buscar__(self, mat):

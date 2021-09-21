@@ -16,7 +16,7 @@ class Mensaje:
     def mandar(self):
         Errores = []
         vuelta = 0
-        for i in range(0, len(self.lista)):
+        for i in range(1, len(self.lista)):
             try:
                 to = [self.lista[i]["Correo"], self.lista[i]["Matricula"]]
                 mensaje = f"""
@@ -57,8 +57,8 @@ Si aún surge alguna duda estaremos disponibles para asesorarte.
                     }
                 )
             now = datetime.now()
-            time = now.strftime("%H:%M:%S")
-            print(f"Han pasado: {(i * self.time) / 60} minutos. {(vuelta)} correos. Se mando a {self.lista[i]['Matricula']}. {time}")
+            moment = now.strftime("%H:%M:%S")
+            print(f"Han pasado: {(i * self.time) / 60} minutos. {(vuelta)} correos. Se mando a {self.lista[i]['Matricula']}. Enviado a las {moment}")
             time.sleep(self.time)
         self.__Datos__(Errores)
         print(f"En este intento {self.intento} se mandaron {vuelta} y hubo {len(Errores)} errores")
@@ -113,8 +113,8 @@ Si aún surge alguna duda estaremos disponibles para asesorarte.
                         }
                     )
                 now = datetime.now()
-                time = now.strftime("%H:%M:%S")
-                print(f"Han pasado: {((i * self.time) / 60)} minutos. {(vuelta)} correos. Se mando a {Errores[i]['Matricula']}")
+                moment = now.strftime("%H:%M:%S")
+                print(f"Han pasado: {((i * self.time) / 60)} minutos. {(vuelta)} correos. Se mando a {Errores[i]['Matricula']}. Enviado a las {moment}")
                 time.sleep(self.time)
             self.__Datos__(ERRORESAUX)
             print(f"En este intento {self.intento} se mandaron {vuelta} y hubo {len(ERRORESAUX)} errores")

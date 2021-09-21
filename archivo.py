@@ -1,5 +1,4 @@
 from carreras import Carreras
-from informe import Informe
 class Archivo:
     def Datos(self, nombre):
         file = open(nombre, "r")
@@ -34,5 +33,4 @@ class Archivo:
                     }
                 )
         print(f"Salieron {len(filtro)} objetos de {carrera}")
-        Informe(carrera, len(filtro))
         return filtro
