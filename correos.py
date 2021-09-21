@@ -16,7 +16,7 @@ class Mensaje:
     def mandar(self):
         Errores = []
         vuelta = 0
-        for i in range(1, len(self.lista)):
+        for i in range(0, len(self.lista)):
             try:
                 to = [self.lista[i]["Correo"], self.lista[i]["Matricula"]]
                 mensaje = f"""
@@ -69,7 +69,7 @@ Si aún surge alguna duda estaremos disponibles para asesorarte.
         while (len(Errores) > 0):
             now = datetime.now()
             time = now.strftime("%H:%M:%S")
-            print(f"Recuperando: {len(Errores)}. Se tardara: {(((len(Errores)-1) * self.time) / 60)} minutos. Se empezo a la hora: {time}")
+            print(f"Recuperando: {len(Errores)}. Se tardara: {((len(Errores) * self.time) / 60)} minutos. Se empezo a la hora: {time}")
             vuelta = 0
             ERRORESAUX = []
             for i in range(0, len(Errores)):

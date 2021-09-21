@@ -22,7 +22,7 @@ class Main():
             self.enviados += len(data)
             now = datetime.now()
             time = now.strftime("%H:%M:%S")
-            print(f"Se tardara: {(((len(data)-1) * self.time) / 60)} minutos. Se empezo a la hora: {time}")
+            print(f"Se tardara: {((len(data) * self.time) / 60)} minutos. Se empezo a la hora: {time}")
             Mensaje(data, self.correo, self.psw, self.time)
             Informe(data[0]['Carrera'], len(data))
     def __Pagina__(self):
