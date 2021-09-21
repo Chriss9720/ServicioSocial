@@ -18,8 +18,8 @@ class Main():
         data = Archivo().Datos(self.name)
         now = datetime.now()
         time = now.strftime("%H:%M:%S")
-        print(f"Se tardara: {((len(data) * self.time) / 60)} minutos. Se empezo a la hora: {time}")
-        Mensaje(data, self.correo, self.psw, self.time)
+        print(f"Se tardara: {(((len(data)-1) * self.time) / 60)} minutos. Se empezo a la hora: {time}")
+        #Mensaje(data, self.correo, self.psw, self.time)
     def __Pagina__(self):
         Data(self.name, self.Usuario, self.clave)
     def __Buscar__(self, mat):

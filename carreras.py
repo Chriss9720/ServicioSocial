@@ -1,8 +1,9 @@
 class Carreras:
     def iniciarBusqueda(self, datos):
         self.__carreras__ = ["ARQ", "IAE", "IAG", "IEM", "IGEM", "IGGM", "IIGM", "IIMC", "IIMS", "IISL", "IM", "IMA", "ISCM", "ISCW", "LAMK", "LANI", "MPIA", "MPID", "MPIS"]
-        self.__CrearArchivoDeCarreras__(datos)
-        return self.__Faltan__(self.__carreras__[(self.__Seleccionar__(self.__Ultima__()))])
+        data = self.__CrearArchivoDeCarreras__(datos)
+        pos = (self.__Seleccionar__(self.__Ultima__()))
+        return self.__Faltan__(self.__carreras__[pos], pos, data)
     ##Metodo para crear el archvio de carreras
     def __CrearArchivoDeCarreras__(self, datos):
         f = open("Carreras.txt", "w")
@@ -17,6 +18,7 @@ class Carreras:
                 cont += 1
                 enLista.append(i['Carrera'])
         f.close()
+        return enLista
     ##Metodo que sirve para no repetir las carreras en el archivo
     def __Esta__(self, dato, lista):
         for i in lista:
@@ -34,12 +36,19 @@ class Carreras:
         except:
             return ""
     ##Esta en la lista la que sigue
-    def __Faltan__(self, buscar):
+    def __Faltan__(self, buscar, pos, data):
         f = open("Carreras.txt", "r")
-        for x in f:
-            if buscar in x:
-                return self.__NuevaUltima__(buscar)
-        return self.__NuevaUltima__(self.__carreras__[0])
+        encontrado = False
+        for x in data:
+            if (not encontrado and buscar in x):
+                encontrado = True
+        if (encontrado):
+            return self.__NuevaUltima__(buscar)
+        else:
+            if(pos < len(data)):
+                return self.__NuevaUltima__(data[pos])
+            else:
+                return self.__NuevaUltima__(data[0])
     ##Metodo que regresa la posicion de la lista para mandar a esa carrera
     def __Seleccionar__(self, ultima):
         if len(ultima) == 0:

@@ -4,6 +4,7 @@ from email.mime.multipart import MIMEMultipart
 #pip install smtplib
 import smtplib
 import time
+from datetime import datetime
 class Mensaje:
     def __init__(self, lista, correo, psw, intervalo):
         self.lista = lista
@@ -55,8 +56,10 @@ Si aún surge alguna duda estaremos disponibles para asesorarte.
                         'Faltantes' : self.lista[i]['Faltantes']
                     }
                 )
+            now = datetime.now()
+            time = now.strftime("%H:%M:%S")
+            print(f"Han pasado: {(i * self.time) / 60} minutos. {(vuelta)} correos. Se mando a {self.lista[i]['Matricula']}. {time}")
             time.sleep(self.time)
-            print(f"Han pasado: {(((i+1) * self.time) / 60)} minutos. {(vuelta)} correos. Se mando a {self.lista[i]['Matricula']}")
         self.__Datos__(Errores)
         print(f"En este intento {self.intento} se mandaron {vuelta} y hubo {len(Errores)} errores")
         self.intento += 1
@@ -64,7 +67,9 @@ Si aún surge alguna duda estaremos disponibles para asesorarte.
         self.__Recuperacion__(Errores)
     def __Recuperacion__(self, Errores):
         while (len(Errores) > 0):
-            print(f"Recuperando: {len(Errores)}")
+            now = datetime.now()
+            time = now.strftime("%H:%M:%S")
+            print(f"Recuperando: {len(Errores)}. Se tardara: {(((len(Errores)-1) * self.time) / 60)} minutos. Se empezo a la hora: {time}")
             vuelta = 0
             ERRORESAUX = []
             for i in range(0, len(Errores)):
@@ -107,8 +112,10 @@ Si aún surge alguna duda estaremos disponibles para asesorarte.
                             'Faltantes' : Errores[i]['Faltantes']
                         }
                     )
+                now = datetime.now()
+                time = now.strftime("%H:%M:%S")
+                print(f"Han pasado: {((i * self.time) / 60)} minutos. {(vuelta)} correos. Se mando a {Errores[i]['Matricula']}")
                 time.sleep(self.time)
-                print(f"Han pasado: {(((i+1) * self.time) / 60)} minutos. {(vuelta)} correos. Se mando a {Errores[i]['Matricula']}")
             self.__Datos__(ERRORESAUX)
             print(f"En este intento {self.intento} se mandaron {vuelta} y hubo {len(ERRORESAUX)} errores")
             print(f"Extras: {(((len(ERRORESAUX)) * self.time) / 60)} minutos")
