@@ -53,7 +53,7 @@ class Main():
         for i in data:
             aux = i["Matricula"].replace('@e-itesca.edu.mx', '')
             if (mat == aux):
-                datos = i['Faltantes']
+                datos = f"{i['Faltantes']} {i['Carrera']}"
         if (len(datos) > 0):
             print(datos)
         else:
