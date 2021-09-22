@@ -1,6 +1,6 @@
 class Carreras:
     def iniciarBusqueda(self, datos):
-        self.__carreras__ = ["ARQ", "IAE", "IAG", "IEM", "IGEM", "IGGM", "IIGM", "IIMC", "IIMS", "IISL", "IM", "IMA", "ISCM", "ISCW", "LAMK", "LANI", "MPIA", "MPID", "MPIS"]
+        self.__carreras__ = ["ARQ", "IAE", "IAG", "IEM", "IGEM", "IGGM", "II","IIGM", "IIMC", "IIMS", "IISL", "IM", "IMA", "ISCM", "ISCW", "LAMK", "LANI", "MPIA", "MPID", "MPIS"]
         data = self.__CrearArchivoDeCarreras__(datos)
         pos = (self.__Seleccionar__(self.__Ultima__()))
         return self.__Faltan__(self.__carreras__[pos], pos, data)

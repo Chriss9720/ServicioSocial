@@ -7,7 +7,6 @@ import time
 class Main():
     #Leer desde un archivo debe de ser Carrera Matricula Correo Instrumentacion faltante
     def __init__(self):
-        self.enviados = 0
         self.name = "Datos.txt" ##Nombre del archivo
         self.correo = 'serviciosocialsiseti2021@gmail.com' ##Correo de donde se mandaran
         self.psw = 'cuuviellugjnnmhn' ##Clave del correo
@@ -34,15 +33,13 @@ class Main():
                 bander = True
         print("Programa terminado")
     def __Mandar__(self):
-        while (self.enviados < 50):
-            data = Archivo().Datos(self.name, True)
-            self.enviados += len(data)
-            now = datetime.now()
-            time = now.strftime("%H:%M:%S")
-            print(f"Se tardara: {((len(data) * self.time) / 60)} minutos. Se empezo a la hora: {time}")
-            Mensaje(data, self.correo, self.psw, self.time)
-            Informe(data[0]['Carrera'], len(data))
-            time.sleep(60)
+        data = Archivo().Datos(self.name, True)
+        now = datetime.now()
+        time = now.strftime("%H:%M:%S")
+        print(f"Se tardara: {((len(data) * self.time) / 60)} minutos. Se empezo a la hora: {time}")
+        Mensaje(data, self.correo, self.psw, self.time)
+        Informe(data[0]['Carrera'], len(data))
+        time.sleep(60)
     def __Pagina__(self):
         Data(self.name, self.Usuario, self.clave)
     def __Buscar__(self, mat):
