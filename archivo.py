@@ -24,7 +24,7 @@ class Archivo:
         filtro = []
         print(f"Se seleciono {carrera}")
         for x in data:
-            if x['Carrera'] in carrera:
+            if x['Carrera'] == carrera:
                 filtro.append(
                     {
                         'Carrera' : x['Carrera'],

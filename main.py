@@ -12,8 +12,8 @@ class Main():
         self.psw = 'cuuviellugjnnmhn' ##Clave del correo
         self.Usuario = '18130159' ##Usuario del SISETI
         self.clave = '12345678' ##Clave del SISETI
-        self.time = 300 #Intervalo en segundos (5 min de preferencia)
-        self.__Pagina__() #Crea el archivo self.nombre con toda la informacion de la pagina
+        self.Intervalo = 300 #Intervalo en segundos (5 min de preferencia)
+        #self.__Pagina__() #Crea el archivo self.nombre con toda la informacion de la pagina
         bander = True
         while (bander):
             try:
@@ -43,13 +43,13 @@ class Main():
     def __Mandar__(self):
         bM = True
         Cont = True
-        data = Archivo().Datos(self.name, True)
+        newData = Archivo().Datos(self.name, True)
         now = datetime.now()
-        time = now.strftime("%H:%M:%S")
+        moment = now.strftime("%H:%M:%S")
         while (Cont):
             try:
                 print("***********Menu correos****************")
-                print(f"Se tardara: {((len(data) * self.time) / 60)} minutos.")
+                print(f"Se tardara: {((len(newData) * self.Intervalo) / 60)} minutos.")
                 op = int(input("Desea continuar\n1.Si\n2.No\nOpcion: "))
                 if(op == 1):
                     bM = True
@@ -68,8 +68,8 @@ class Main():
                 print(f"Main.py 68. Opcion invalida: {e}")
                 print("***********************************")
         if (bM):
-            print(f"***********Se empezo a la hora: {time}****************")
-            Mensaje(data, self.correo, self.psw, self.time)
+            print(f"***********Se empezo a la hora: {moment}****************")
+            Mensaje(data, self.correo, self.psw, self.Intervalo)
             Informe(data[0]['Carrera'], len(data))
             time.sleep(60)
             print("***********************************")
