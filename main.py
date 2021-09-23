@@ -76,7 +76,6 @@ class Main():
     def __Pagina__(self):
         Data(self.name, self.Usuario, self.clave)
     def __Buscar__(self, mat):
-        print(mat)
         data = Archivo().Datos(self.name, False)
         datos = ""
         print("***********Resultado****************")
