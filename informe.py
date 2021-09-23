@@ -8,8 +8,8 @@ class Informe():
             f = open("Informe.txt", "r")
             for x in f:
                 datos.append(x.replace("\n", ""))
-        except:
-            print("No hay datos")
+        except Exception as e:
+            print(f"Informe.py. No hay datos: {e}")
         now = datetime.today().strftime("%d/%m/%Y")
         datos.append(f"{now}->{carrera}->{total}")
         return datos

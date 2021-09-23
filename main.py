@@ -35,9 +35,9 @@ class Main():
                     bander = True
                     print("Opcion invalida")
                     print("***********************************")
-            except:
+            except Exception as e:
                 bander = True
-                print("Opcion invalida")
+                print(f"Main.py 40. Opcion invalida: {e}")
                 print("***********************************")
         print("Programa terminado")
     def __Mandar__(self):
@@ -62,10 +62,10 @@ class Main():
                     Cont = True
                     print("Opcion invalida")
                 print("***********************************")
-            except:
+            except Exception as e:
                 bM = False
                 Cont = True
-                print("Opcion invalida")
+                print(f"Main.py 68. Opcion invalida: {e}")
                 print("***********************************")
         if (bM):
             print(f"***********Se empezo a la hora: {time}****************")

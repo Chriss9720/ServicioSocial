@@ -33,7 +33,8 @@ class Carreras:
             for d in f:
                 ultimo = d
             return ultimo
-        except:
+        except Exception as e:
+            print(f"Carrara.py: {e}")
             return ""
     ##Esta en la lista la que sigue
     def __Faltan__(self, buscar, pos, data):
