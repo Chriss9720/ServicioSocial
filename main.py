@@ -17,29 +17,62 @@ class Main():
         bander = True
         while (bander):
             try:
+                print("***********Menu principal****************")
                 op = int(input("Que desea hacer:\n1.Buscar por matricula\n2.Mandar correos\n3.Salir\nOpcion: "))
+                print("***********************************")
                 if (op == 1):
                     while (op == 1):
+                        print("***********Ingrese****************")
                         matricula = str(input("Matricula: "))
                         self.__Buscar__(matricula) #Recibe una matricula y dice si existe
                         op = int(input("Volver a buscar: \n1.Si \n2.No\nOpcion: "))
+                        print("***********************************")
                 elif (op == 2):
                     self.__Mandar__() #Carrera matricula correo instrumentos
                 elif (op == 3):
                     bander = False
                 else:
-                    bander = int(input("Desea realizar otra accion\n1.Si\n2.No\nOpcion: ")) == 1
+                    bander = True
+                    print("Opcion invalida")
+                    print("***********************************")
             except:
                 bander = True
+                print("Opcion invalida")
+                print("***********************************")
         print("Programa terminado")
     def __Mandar__(self):
+        bM = True
+        Cont = True
         data = Archivo().Datos(self.name, True)
         now = datetime.now()
         time = now.strftime("%H:%M:%S")
-        print(f"Se tardara: {((len(data) * self.time) / 60)} minutos. Se empezo a la hora: {time}")
-        Mensaje(data, self.correo, self.psw, self.time)
-        Informe(data[0]['Carrera'], len(data))
-        time.sleep(60)
+        while (Cont):
+            try:
+                print("***********Menu correos****************")
+                print(f"Se tardara: {((len(data) * self.time) / 60)} minutos.")
+                op = int(input("Desea continuar\n1.Si\n2.No\nOpcion: "))
+                if(op == 1):
+                    bM = True
+                    Cont = False
+                elif (op == 2):
+                    bM = False
+                    Cont = False
+                else:
+                    bM = False
+                    Cont = True
+                    print("Opcion invalida")
+                print("***********************************")
+            except:
+                bM = False
+                Cont = True
+                print("Opcion invalida")
+                print("***********************************")
+        if (bM):
+            print(f"***********Se empezo a la hora: {time}****************")
+            Mensaje(data, self.correo, self.psw, self.time)
+            Informe(data[0]['Carrera'], len(data))
+            time.sleep(60)
+            print("***********************************")
     def __Pagina__(self):
         Data(self.name, self.Usuario, self.clave)
     def __Buscar__(self, mat):
