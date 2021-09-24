@@ -11,7 +11,7 @@ class Mensaje:
         self.intento = 0
         self.Correo = correo
         self.Psw = psw
-        self.time = intervalo
+        self.esperar = intervalo
         self.mandar()
     def mandar(self):
         Errores = []
@@ -58,18 +58,18 @@ Si aún surge alguna duda estaremos disponibles para asesorarte.
                 )
             now = datetime.now()
             moment = now.strftime("%H:%M:%S")
-            print(f"Han pasado: {(i * self.time) / 60} minutos. {(vuelta)} correos. Se mando a {self.lista[i]['Matricula']}. Enviado a las {moment}")
-            time.sleep(self.time)
+            print(f"Han pasado: {(i * self.esperar) / 60} minutos. {(vuelta)} correos. Se mando a {self.lista[i]['Matricula']}. Enviado a las {moment}")
+            time.sleep(self.esperar)
         self.__Datos__(Errores)
         print(f"En este intento {self.intento} se mandaron {vuelta} y hubo {len(Errores)} errores")
         self.intento += 1
-        print(f"Extras: {(((len(Errores)) * self.time) / 60)} minutos")
+        print(f"Extras: {(((len(Errores)) * self.esperar) / 60)} minutos")
         self.__Recuperacion__(Errores)
     def __Recuperacion__(self, Errores):
         while (len(Errores) > 0):
             now = datetime.now()
             time = now.strftime("%H:%M:%S")
-            print(f"Recuperando: {len(Errores)}. Se tardara: {((len(Errores) * self.time) / 60)} minutos. Se empezo a la hora: {time}")
+            print(f"Recuperando: {len(Errores)}. Se tardara: {((len(Errores) * self.esperar) / 60)} minutos. Se empezo a la hora: {time}")
             vuelta = 0
             ERRORESAUX = []
             for i in range(0, len(Errores)):
@@ -114,11 +114,11 @@ Si aún surge alguna duda estaremos disponibles para asesorarte.
                     )
                 now = datetime.now()
                 moment = now.strftime("%H:%M:%S")
-                print(f"Han pasado: {((i * self.time) / 60)} minutos. {(vuelta)} correos. Se mando a {Errores[i]['Matricula']}. Enviado a las {moment}")
-                time.sleep(self.time)
+                print(f"Han pasado: {((i * self.esperar) / 60)} minutos. {(vuelta)} correos. Se mando a {Errores[i]['Matricula']}. Enviado a las {moment}")
+                time.sleep(self.esperar)
             self.__Datos__(ERRORESAUX)
             print(f"En este intento {self.intento} se mandaron {vuelta} y hubo {len(ERRORESAUX)} errores")
-            print(f"Extras: {(((len(ERRORESAUX)) * self.time) / 60)} minutos")
+            print(f"Extras: {(((len(ERRORESAUX)) * self.esperar) / 60)} minutos")
             self.intento += 1
             Errores = ERRORESAUX
         print("Se terminaron de mandar todos correos")

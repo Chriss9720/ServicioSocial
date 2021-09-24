@@ -69,8 +69,8 @@ class Main():
                 print("***********************************")
         if (bM):
             print(f"***********Se empezo a la hora: {moment}****************")
-            Mensaje(data, self.correo, self.psw, self.Intervalo)
-            Informe(data[0]['Carrera'], len(data))
+            Mensaje(newData, self.correo, self.psw, self.Intervalo)
+            Informe(newData[0]['Carrera'], len(newData))
             time.sleep(60)
             print("***********************************")
     def __Pagina__(self):
