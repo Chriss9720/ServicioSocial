@@ -58,7 +58,7 @@ Si aún surge alguna duda estaremos disponibles para asesorarte.
                 )
             now = datetime.now()
             moment = now.strftime("%H:%M:%S")
-            print(f"Han pasado: {(i * self.esperar) / 60} minutos. {(vuelta)} correos. Se mando a {self.lista[i]['Matricula']}. Enviado a las {moment}. {self.esperar}")
+            print(f"Han pasado: {(i * self.esperar) / 60} minutos. {(vuelta)} correos. Se mando a {self.lista[i]['Matricula']}. Enviado a las {moment}.")
             time.sleep(self.esperar)
         self.__Datos__(Errores)
         print(f"En este intento {self.intento} se mandaron {vuelta} y hubo {len(Errores)} errores")

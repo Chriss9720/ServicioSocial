@@ -91,7 +91,9 @@ class Main():
             print("No esta en la lista de faltantes")
         print("***********************************")
     def __Informe__(self):
+        print("***********Informe****************")
         f = open("Informe.txt", 'r')
         for i in f:
-            print(f)
+            aux = i.replace("\n", "")
+            print(aux)
 Main()
