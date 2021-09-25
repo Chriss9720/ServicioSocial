@@ -18,7 +18,7 @@ class Main():
         while (bander):
             try:
                 print("***********Menu principal****************")
-                op = int(input("Que desea hacer:\n1.Buscar por matricula\n2.Mandar correos\n3.Salir\nOpcion: "))
+                op = int(input("Que desea hacer:\n1.Buscar por matricula\n2.Mandar correos\n3.Ver Informe\n4.Salir\nOpcion: "))
                 print("***********************************")
                 if (op == 1):
                     while (op == 1):
@@ -30,6 +30,8 @@ class Main():
                 elif (op == 2):
                     self.__Mandar__() #Carrera matricula correo instrumentos
                 elif (op == 3):
+                    self.__Informe__()
+                elif (op == 4):
                     bander = False
                 else:
                     bander = True
@@ -88,4 +90,8 @@ class Main():
         else:
             print("No esta en la lista de faltantes")
         print("***********************************")
+    def __Informe__(self):
+        f = open("Informe.txt", 'r')
+        for i in f:
+            print(f)
 Main()
