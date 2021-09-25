@@ -22,10 +22,10 @@ class Carreras:
     ##Metodo que sirve para no repetir las carreras en el archivo
     def __Esta__(self, dato, lista):
         for i in lista:
-            if dato in i:
+            if dato == i:
                 return False
         return True
-    ##Metodo para sacar la ultima carrera a la que se envio el mensaje
+    ##Metodo para buscar la carrera en la lista
     def __Ultima__(self):
         try:
             ultimo = ""

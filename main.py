@@ -13,7 +13,7 @@ class Main():
         self.Usuario = '18130159' ##Usuario del SISETI
         self.clave = '12345678' ##Clave del SISETI
         self.Intervalo = 300 #Intervalo en segundos (5 min de preferencia)
-        #self.__Pagina__() #Crea el archivo self.nombre con toda la informacion de la pagina
+        self.__Pagina__() #Crea el archivo self.nombre con toda la informacion de la pagina
         bander = True
         while (bander):
             try:
