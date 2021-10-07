@@ -13,7 +13,7 @@ class Main():
         self.Usuario = '18130159' ##Usuario del SISETI
         self.clave = '12345678' ##Clave del SISETI
         self.Intervalo = 300 #Intervalo en segundos (5 min de preferencia)
-        #self.__Pagina__() #Crea el archivo self.nombre con toda la informacion de la pagina
+        self.__Pagina__() #Crea el archivo self.nombre con toda la informacion de la pagina
         bander = True
         while (bander):
             try:
@@ -106,11 +106,9 @@ class Main():
                 for j in datos:
                     if (j['C'] == aux[1]):
                         j['D'].append(f"\t{aux[0]}->{aux[2]}")
-        f = open("Informe.txt", "w")
         for d in datos:
             text = d['C']
             for dt in d['D']:
                 text = f"{text} {dt}"
             print(text)
-            f.write(text)
 Main()
