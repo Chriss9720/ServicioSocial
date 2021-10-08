@@ -106,9 +106,11 @@ class Main():
                 for j in datos:
                     if (j['C'] == aux[1]):
                         j['D'].append(f"\t{aux[0]}->{aux[2]}")
+        f = open("Reporte.txt", 'w')
         for d in datos:
             text = d['C']
             for dt in d['D']:
                 text = f"{text} {dt}"
+            f.write(f"{text}\n")
             print(text)
 Main()
