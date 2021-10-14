@@ -5,6 +5,7 @@ from email.mime.multipart import MIMEMultipart
 import smtplib
 import time
 from datetime import datetime
+from Internet import Con
 class Mensaje:
     def __init__(self, lista, correo, psw, intervalo):
         self.lista = lista
@@ -18,6 +19,7 @@ class Mensaje:
         vuelta = 0
         for i in range(0, len(self.lista)):
             try:
+                Con()
                 to = [self.lista[i]["Correo"], self.lista[i]["Matricula"]]
                 mensaje = f"""
 Hola, esperamos que te encuentres bien:
@@ -68,12 +70,13 @@ Si aún surge alguna duda estaremos disponibles para asesorarte.
     def __Recuperacion__(self, Errores):
         while (len(Errores) > 0):
             now = datetime.now()
-            time = now.strftime("%H:%M:%S")
-            print(f"Recuperando: {len(Errores)}. Se tardara: {((len(Errores) * self.esperar) / 60)} minutos. Se empezo a la hora: {time}")
+            moment = now.strftime("%H:%M:%S")
+            print(f"Recuperando: {len(Errores)}. Se tardara: {((len(Errores) * self.esperar) / 60)} minutos. Se empezo a la hora: {moment}")
             vuelta = 0
             ERRORESAUX = []
             for i in range(0, len(Errores)):
                 try:
+                    Con()
                     to = [Errores[i]["Correo"], Errores[i]["Matricula"]]
                     mensaje = f"""
 Hola, esperamos que te encuentres bien:

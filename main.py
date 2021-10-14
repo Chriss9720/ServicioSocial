@@ -4,6 +4,7 @@ from archivo import Archivo
 from datetime import datetime
 from informe import Informe
 import time
+from Internet import Con
 class Main():
     #Leer desde un archivo debe de ser Carrera Matricula Correo Instrumentacion faltante
     def __init__(self):
@@ -76,6 +77,7 @@ class Main():
             time.sleep(60)
             print("***********************************")
     def __Pagina__(self):
+        Con()
         Data(self.name, self.Usuario, self.clave)
     def __Buscar__(self, mat):
         data = Archivo().Datos(self.name, False)
